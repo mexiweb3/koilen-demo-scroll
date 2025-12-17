@@ -6,13 +6,6 @@ Koilen bridges the physical world with the blockchain by logging secure, tamper-
 
 ---
 
-## 📺 Demo & Links
-- **Live Demo**: [Add your Vercel/Netlify link here]
-- **Video Walkthrough**: [Add your YouTube/Loom link here]
-- **Pitch Deck**: [Add link if available]
-
----
-
 ## 💡 The Problem
 Supply chains and critical infrastructure rely on environmental controls, but sensor data usually lives in siloed, centralized servers that can be manipulated. 
 
