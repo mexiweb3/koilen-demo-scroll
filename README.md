@@ -98,8 +98,8 @@ Visit `http://localhost:8080` to see your data.
 ---
 
 ## 👥 Team
-- **[Name]**: [Role/Twitter/LinkedIn]
-- **[Name]**: [Role/Twitter/LinkedIn]
+- **[Diego Benitez]**: [cofounder/[LinkedIn](https://www.linkedin.com/in/benitezconcha/)]
+- **[Mauricio Cruz - Mexi]**: [cofounder/[LinkedIn](https://www.linkedin.com/in/mauricio-cruz-65b124163/)]
 
 ## 📄 License
 MIT
