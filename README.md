@@ -1,85 +1,105 @@
-# Koilen Scroll Demo
+# Koilen Scroll Demo 📜 + 🌡️
 
-Integration of Tuya IoT Sensors with Scroll Sepolia Testnet.
+> **Immutable IoT Data Logging on Scroll Sepolia**
 
-## Overview
-This project reads temperature and humidity data from a Tuya-enabled device and logs it immutably on the Scroll Sepolia blockchain. It includes a frontend dashboard to view real-time and historical data stored on-chain.
+Koilen bridges the physical world with the blockchain by logging secure, tamper-proof sensor data using Tuya IoT devices and the Scroll Layer 2 network.
 
-## Features
-- **Tuya Integration**: Fetches real-time sensor data via Tuya Cloud API.
-- **Blockchain Storage**: Stores readings on Scroll Sepolia using a smart contract (`SensorRegistry`).
-- **Keystore Security**: Uses encrypted JSON keystores for safe transaction signing.
-- **Automated Service**: Daemon script to log data at configurable intervals.
-- **Visual Dashboard**: Modern web frontend with interactive charts and reading history.
+---
 
-## Prerequisites
-- Node.js v16+
-- A Scroll Sepolia funded wallet (Keystore JSON file)
-- Tuya Developer Account (Access ID/Secret)
+## 📺 Demo & Links
+- **Live Demo**: [Add your Vercel/Netlify link here]
+- **Video Walkthrough**: [Add your YouTube/Loom link here]
+- **Pitch Deck**: [Add link if available]
 
-## Setup
+---
 
-1. **Install Dependencies**
-   ```bash
-   npm install
-   ```
+## 💡 The Problem
+Supply chains and critical infrastructure rely on environmental controls, but sensor data usually lives in siloed, centralized servers that can be manipulated. 
 
-2. **Configuration**
-   Create a `.env` file with your credentials:
-   ```env
-   # Tuya API
-   TUYA_ACCESS_ID=your_access_id
-   TUYA_ACCESS_SECRET=your_access_secret
-   TUYA_API_ENDPOINT=https://openapi.tuyaus.com
-   DEVICE_ID=your_device_id
+## 🛠️ The Solution
+**Koilen** provides a decentralized "black box" for IoT data. 
+1. **Real-time Capture**: Reads Temperature & Humidity from Tuya-certified devices.
+2. **Immutable Storage**: Periodically commits hashes/data to the Scroll blockchain.
+3. **Verifiable History**: Anyone can audit the environment history via the smart contract.
 
-   # Wallet
-   KEYSTORE_PASSWORD=your_keystore_password
-   ```
+## 🏗️ Architecture
 
-3. **Keystore**
-   Place your encrypted keystore file (e.g., `defaultKey` or `UTC--...json`) in the root directory.
-
-## Deployment
-
-Deploy the smart contract to Scroll Sepolia:
-
-```bash
-node deploy-standalone.js
+```mermaid
+graph TD
+    A[Tuya IoT Device] -->|Cloud API| B(Koilen Node Service)
+    B -->|Signed Transaction| C{Scroll Sepolia User}
+    C -->|Log Reading| D[SensorRegistry Contract]
+    D -->|Events| E[Frontend Dashboard]
+    E -->|Read History| C
 ```
-*This script compiles the contract, deploys it, and manages verification on Scrollscan automatically.*
 
-## Usage
+## ✨ Key Features
+- **Tuya Integration**: Seamless connection to millions of commercial IoT devices.
+- **Cost-Effective**: Utilizes Scroll's low gas fees for frequent data logging.
+- **Crypto-secure**: Uses local keystore management for automated signing.
+- **Visual Dashboard**: Real-time charts (Chart.js) and historical data inspection.
 
-### 1. Data Logging Service
-Start the service to read from Tuya and write to Scroll:
+## 💻 Tech Stack
+- **Blockchain**: Solidity, Scroll Sepolia Testnet
+- **Backend**: Node.js, Ethers.js
+- **IoT Provider**: Tuya Cloud API
+- **Frontend**: Vanilla JS, Chart.js, Chart.js Date Adapter
 
-*   **Run once:**
-    ```bash
-    node koilen-service.js
-    ```
+## 📜 Smart Contract
+**SensorRegistry**: [`0xc26a0053fE1b4849F33409E2ddAC2F9C76484Af9`](https://sepolia.scrollscan.com/address/0xc26a0053fE1b4849F33409E2ddAC2F9C76484Af9)
 
-*   **Run continuously (Daemon mode):**
-    ```bash
-    node koilen-service.js loop
-    ```
-    *Default interval: 30 seconds.*
+---
 
-### 2. Frontend Dashboard
-Visualize the data:
+## 🚀 Getting Started
 
+### Prerequisites
+- Node.js v16+
+- A funded Scroll Sepolia wallet (ETH)
+- Tuya Developer Account
+
+### 1. Installation
+```bash
+git clone https://github.com/mexiweb3/koilen-demo-scroll.git
+cd koilen-demo-scroll
+npm install
+```
+
+### 2. Configuration
+Create a `.env` file in the root directory:
+```env
+# Tuya Cloud Credentials
+TUYA_ACCESS_ID=your_access_id
+TUYA_ACCESS_SECRET=your_access_secret
+TUYA_API_ENDPOINT=https://openapi.tuyaus.com
+DEVICE_ID=your_device_id
+
+# Wallet Security
+KEYSTORE_PASSWORD=your_keystore_password
+```
+*Note: Place your encrypted JSON keystore file (e.g., `UTC--...`) in the root folder.*
+
+### 3. Usage
+
+**Run the Data Logger (Backend)**
+```bash
+# Single log
+node koilen-service.js
+
+# Daemon mode (runs every 30s)
+node koilen-service.js loop
+```
+
+**Run the Dashboard (Frontend)**
 ```bash
 npx http-server frontend -p 8080 -c-1
 ```
-Open **[http://localhost:8080](http://localhost:8080)** in your browser.
+Visit `http://localhost:8080` to see your data.
 
-## Project Structure
-- `contracts/`: Solidity smart contracts.
-- `frontend/`: HTML/CSS/JS for the dashboard.
-- `scripts/`: Legacy Hardhat scripts.
-- `deploy-standalone.js`: Main deployment automation.
-- `koilen-service.js`: Main logic for data fetching and transaction signing.
-- `tuya-client.js`: Tuya API wrapper.
+---
 
-## Verified Contract
-**SensorRegistry**: `0xc26a0053fE1b4849F33409E2ddAC2F9C76484Af9` (Scroll Sepolia)
+## 👥 Team
+- **[Name]**: [Role/Twitter/LinkedIn]
+- **[Name]**: [Role/Twitter/LinkedIn]
+
+## 📄 License
+MIT
