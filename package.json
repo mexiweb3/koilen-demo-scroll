@@ -1,0 +1,26 @@
+{
+  "name": "tuya-sensor-integration",
+  "version": "1.0.0",
+  "description": "Integración con API de Tuya para sensor de temperatura y humedad",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "get-devices": "node get-devices.js",
+    "get-sensor-data": "node get-sensor-data.js"
+  },
+  "dependencies": {
+    "@tuya/tuya-connector-nodejs": "^2.1.2",
+    "axios": "^1.13.2",
+    "dotenv": "^16.3.1",
+    "form-data": "^4.0.5",
+    "prompts": "^2.4.2",
+    "solc": "^0.8.19"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-ethers": "^4.0.3",
+    "@types/node": "^20.10.0",
+    "ethers": "^6.16.0",
+    "hardhat": "^3.1.0"
+  }
+}

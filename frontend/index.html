@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koilen Sensor Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/6.11.1/ethers.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">Koilen<span class="highlight">Sensor</span></div>
+            <div class="status" id="connectionStatus">Connecting...</div>
+        </header>
+
+        <main>
+            <section class="current-readings">
+                <div class="card temp-card">
+                    <h2>Temperature</h2>
+                    <div class="value" id="currentTemp">--°C</div>
+                    <div class="icon">🌡️</div>
+                </div>
+                <div class="card humidity-card">
+                    <h2>Humidity</h2>
+                    <div class="value" id="currentHumidity">--%</div>
+                    <div class="icon">💧</div>
+                </div>
+                <div class="card update-card">
+                    <h2>Last Update</h2>
+                    <div class="value small" id="lastUpdate">--</div>
+                    <div class="icon">⏱️</div>
+                </div>
+            </section>
+
+            <section class="history-section">
+                <h2>Historical Chart</h2>
+                <div class="chart-container">
+                    <canvas id="sensorChart"></canvas>
+                </div>
+            </section>
+
+            <section class="list-section">
+                <h2>Recent Readings</h2>
+                <div class="table-container">
+                    <table id="readingsTable">
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>Temperature</th>
+                                <th>Humidity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Rows will be injected here -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
